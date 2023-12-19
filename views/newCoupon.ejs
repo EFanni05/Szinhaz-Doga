@@ -28,39 +28,26 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/newCoupon">Új kupon hozzá adása</a>
+                        <a class="nav-link active" href="/newCoupon">Új kupon hozzá adása</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <table class="table align-items-center table-hover">
-        <thead>
-            <th>
-            <td scope="col">Cím</td>
-            <td scope="col">Százalék</td>
-            <td scope="col">Code</td>
-            </th>
-        </thead>
-        <tbody>
-            <% kuponok.forEach(data=> { %>
-                <tr>
-                    <td scope="row">
-                        <%= data.title %>
-                    </td>
-                    <td>
-                        <%= data.percentage %>
-                    </td>
-                    <td>
-                        <%= data.code %>
-                    </td>
-                </tr>
-                <% }); %>
-        </tbody>
-    </table>
+    <form method="post" action="/newCoupon" class="align-items-center">
+        <lable>Előadás neve:<input type="text" name="title" id="title" class="form-control form-control-sm"></lable>
+        <br>
+        <lable>Százalék:<input type="number" name="percentage" id="percentage" placeholder="20"
+                class="form-control form-control-sm"></lable>
+        <br>
+        <lable>Code:<input type="text" name="code" id="code" placeholder="XXXX-123456"
+                class="form-control form-control-sm"></lable>
+        <br>
+        <input type="submit" class="btn btn-outline-light">
+    </form>
 </body>
 
 </html>
